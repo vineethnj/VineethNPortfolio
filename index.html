@@ -1,2084 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cowboy Garage Doors | Professional Garage Door Services</title>
-<meta name="description" content="Cowboy Garage Doors provides professional garage door installation, repair, and maintenance services for residential and commercial properties with same-day service available.">
-<meta name="keywords" content="garage door repair, garage door installation, commercial garage doors, residential garage doors, same day service, western garage doors">
-<!-- Favicon -->
-<link rel="icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/door-open.svg" type="image/svg+xml">
-<!-- Tailwind CSS -->
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<!-- Font Awesome -->
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<style>
-:root {
-    --primary: #5D4037;
-    --secondary: #8D6E63;
-    --accent: #A1887F;
-    --dark: #3E2723;
-    --light: #EFEBE9;
-    --white: #FFFFFF;
-    --gray: #757575;
-    --light-gray: #F5F5F5;
-    --transition-fast: 0.3s;
-    --transition-medium: 0.5s;
-    --transition-slow: 0.8s;
-    --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
-    --ease-out-circ: cubic-bezier(0, 0.55, 0.45, 1);
-}
-
-/* Base Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    scroll-behavior: smooth;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-}
-
-section {
-    position: relative;
-    padding: 5rem 0;
-    overflow: hidden;
-}
-
-.container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-}
-
-/* Animation Base Classes */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity var(--transition-medium) var(--ease-out-cubic),
-                transform var(--transition-medium) var(--ease-out-cubic);
-}
-
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.stagger-item {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-/* Hero Section */
-.hero-pattern {
-    position: relative;
-    min-height: 100vh;
-    background-color: #333;
-    display: flex;
-    align-items: center;
-    padding-top: 80px;
-}
-
-.hero-pattern::before {
-    content: "";
-    background-image: url('https://github.com/vineethnj/Cowboy-garage-doors/blob/main/ChatGPT%20Image%20Apr%2013,%202025,%2012_02_35%20PM.png?raw=true');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.6;
-    transition: transform var(--transition-slow) var(--ease-out-circ);
-}
-
-.hero-pattern:hover::before {
-    transform: scale(1.05);
-}
-
-/* Buttons */
-.classic-button {
-    padding: 12px 24px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    transition: all var(--transition-fast);
-    display: inline-block;
-    text-align: center;
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.classic-button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: rgba(0,0,0,0.1);
-    transition: height var(--transition-fast) ease;
-    z-index: -1;
-}
-
-.classic-button:hover::after {
-    height: 100%;
-}
-
-.btn-primary {
-    background-color: var(--primary);
-    color: white;
-    border: 2px solid var(--primary);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-}
-
-.btn-secondary {
-    background-color: white;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-/* Navigation */
-.header-fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all var(--transition-fast);
-    background-color: rgba(255,255,255,0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.header-fixed.scrolled {
-    padding: 0.5rem 0;
-    background-color: rgba(255,255,255,0.98);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.navigation-link {
-    font-weight: 500;
-    position: relative;
-    transition: all var(--transition-fast);
-    padding-bottom: 5px;
-}
-
-.navigation-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary);
-    transition: width var(--transition-fast);
-}
-
-.navigation-link:hover {
-    color: var(--primary);
-}
-
-.navigation-link:hover::after,
-.navigation-link.active::after {
-    width: 100%;
-}
-
-.navigation-link.active {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-/* Mobile Menu Animation */
-.mobile-menu-enter {
-    max-height: 0;
-    opacity: 0;
-    transition: max-height var(--transition-medium) ease-out,
-                opacity var(--transition-medium) ease-out;
-}
-
-.mobile-menu-enter.active {
-    max-height: 500px;
-    opacity: 1;
-}
-
-/* Section Titles */
-.section-title {
-    position: relative;
-    margin-bottom: 2.5rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 3px;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--primary);
-    transition: width var(--transition-medium) ease;
-}
-
-.section-title:hover::after {
-    width: 100px;
-}
-
-/* Cards */
-.service-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    transition: all var(--transition-medium) var(--ease-out-cubic);
-    border: 1px solid #ececec;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.service-card .card-content {
-    padding: 2rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card .card-footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
-}
-
-.service-card .image-container {
-    overflow: hidden;
-    height: 240px;
-}
-
-.service-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow) var(--ease-out-circ);
-}
-
-.service-card:hover img {
-    transform: scale(1.1);
-}
-
-/* Testimonial Card */
-.testimonial-card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--primary);
-    transition: all var(--transition-medium) var(--ease-out-cubic);
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 120px;
-    font-family: 'Playfair Display', serif;
-    color: rgba(0,0,0,0.03);
-    line-height: 1;
-}
-
-.testimonial-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-}
-
-/* Stats Counter */
-.stats-counter {
-    text-align: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all var(--transition-medium) var(--ease-out-cubic);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.stats-counter::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background: linear-gradient(180deg, rgba(93, 64, 55, 0.05) 0%, rgba(255,255,255,0) 100%);
-    transition: height var(--transition-medium) ease;
-    z-index: -1;
-}
-
-.stats-counter:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.stats-counter:hover::before {
-    height: 100%;
-}
-
-.stats-counter .number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--primary);
-    font-family: 'Playfair Display', serif;
-    display: inline-block;
-    position: relative;
-}
-
-.stats-counter .number::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: width var(--transition-fast) ease;
-}
-
-.stats-counter:hover .number::after {
-    width: 100%;
-}
-
-.stats-counter .label {
-    font-size: 1rem;
-    color: var(--gray);
-    transition: color var(--transition-fast) ease;
-}
-
-.stats-counter:hover .label {
-    color: var(--dark);
-}
-
-/* FAQ Section */
-.faq-item {
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    transition: all var(--transition-fast);
-}
-
-.faq-item:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.faq-question {
-    padding: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    position: relative;
-    z-index: 2;
-    transition: background-color var(--transition-fast);
-}
-
-.faq-question:hover {
-    background-color: rgba(93, 64, 55, 0.03);
-}
-
-.faq-question i {
-    transition: transform var(--transition-fast);
-}
-
-.faq-question.active i {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height var(--transition-medium) var(--ease-out-cubic),
-                padding var(--transition-medium) var(--ease-out-cubic);
-    padding: 0 20px;
-    border-top: 0px solid #f0f0f0;
-    opacity: 0;
-}
-
-.faq-answer.active {
-    max-height: 1000px;
-    padding: 20px;
-    border-top: 1px solid #f0f0f0;
-    opacity: 1;
-}
-
-/* Contact Form */
-.contact-form {
-    position: relative;
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #e2e2e2;
-    border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
-    transition: all var(--transition-fast);
-    background-color: white;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.1);
-    outline: none;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #333;
-    transition: color var(--transition-fast);
-}
-
-.contact-form input:focus + label,
-.contact-form textarea:focus + label,
-.contact-form select:focus + label {
-    color: var(--primary);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* Form Validation */
-.form-group.error input,
-.form-group.error textarea,
-.form-group.error select {
-    border-color: #e53e3e;
-    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
-}
-
-.form-group.success input,
-.form-group.success textarea,
-.form-group.success select {
-    border-color: #48bb78;
-    box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
-}
-
-.error-message {
-    color: #e53e3e;
-    font-size: 0.875rem;
-    margin-top: 4px;
-    display: none;
-}
-
-.form-group.error .error-message {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-/* Contact Info */
-.contact-info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 24px;
-    transition: all var(--transition-medium) var(--ease-out-cubic);
-}
-
-.contact-info-item:hover {
-    transform: translateX(10px);
-}
-
-.contact-info-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 16px;
-    flex-shrink: 0;
-    color: white;
-    transition: all var(--transition-medium);
-}
-
-.contact-info-item:hover .contact-info-icon {
-    transform: scale(1.1);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-}
-
-/* Classic Divider */
-.classic-divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--primary), transparent);
-    margin: 3rem auto;
-    width: 60%;
-    position: relative;
-}
-
-.classic-divider::before {
-    content: '◆';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--light-gray);
-    padding: 0 20px;
-    color: var(--primary);
-    font-size: 16px;
-    transition: transform var(--transition-medium) ease;
-}
-
-.bg-white .classic-divider::before {
-    background: var(--white);
-}
-
-.classic-divider:hover::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--dark);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 90% 10%, rgba(93, 64, 55, 0.3) 0%, transparent 70%);
-    opacity: 0.3;
-}
-
-.footer-link {
-    transition: all var(--transition-fast);
-    display: inline-block;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 15px;
-}
-
-.footer-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    transition: all var(--transition-fast);
-}
-
-.footer-link:hover {
-    color: var(--accent);
-    transform: translateX(5px);
-}
-
-.footer-link:hover::before {
-    background-color: white;
-    transform: translateY(-50%) scale(1.5);
-}
-
-.footer-social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.1);
-    transition: all var(--transition-medium) var(--ease-out-cubic);
-    position: relative;
-    overflow: hidden;
-}
-
-.footer-social-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--accent);
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform var(--transition-fast) ease;
-    border-radius: 50%;
-}
-
-.footer-social-icon i {
-    position: relative;
-    z-index: 1;
-    transition: transform var(--transition-fast) ease;
-}
-
-.footer-social-icon:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.footer-social-icon:hover::after {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.footer-social-icon:hover i {
-    transform: scale(1.2);
-}
-
-/* Background Patterns & Effects */
-.bg-pattern {
-    position: relative;
-}
-
-.bg-pattern::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23594037' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.5;
-    z-index: 0;
-}
-
-/* Additional Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInFromLeft {
-    from { opacity: 0; transform: translateX(-50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInFromRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.animate-pulse {
-    animation: pulse 2s infinite;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .hero-pattern {
-        min-height: auto;
-        padding: 120px 0 80px;
-    }
-
-    .section-title::after {
-        width: 60px;
-    }
-
-    .stats-counter {
-        margin-bottom: 2rem;
-    }
-
-    .contact-info-item:hover {
-        transform: translateX(5px);
-    }
-
-    .classic-divider {
-        width: 80%;
-    }
-}
-
-@media (min-width: 768px) {
-    .stagger-delay-1 { transition-delay: 0.1s; }
-    .stagger-delay-2 { transition-delay: 0.2s; }
-    .stagger-delay-3 { transition-delay: 0.3s; }
-    .stagger-delay-4 { transition-delay: 0.4s; }
-    .stagger-delay-5 { transition-delay: 0.5s; }
-}
-
-/* Utilities */
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Form Feedback Animation */
-.submit-feedback {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    transform: translateY(-100%);
-    transition: transform var(--transition-medium) var(--ease-out-cubic);
-    z-index: 9999;
-}
-
-.submit-feedback.active {
-    transform: translateY(0);
-}
-
-/* Button Loading State */
-.btn-loading {
-    position: relative;
-}
-
-.btn-loading::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 50%;
-    margin-top: -10px;
-    margin-left: -10px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 0.8s linear infinite;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
-}
-
-.btn-loading.loading .btn-text {
-    opacity: 0;
-}
-
-.btn-loading.loading::after {
-    opacity: 1;
-    visibility: visible;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* START: Added CSS rules for Call to Action Banner */
-.text-shadow {
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
-}
-
-.border-3 {
-    border-width: 3px;
-}
-
-/* Button glow effect */
-.shadow-lg {
-    /* Applying Tailwind's shadow-lg definition directly */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* Additional styles for the call-to-action section */
-.bg-\[\#5D4037\] { /* Targeting the specific class */
-    position: relative;
-}
-
-.bg-\[\#5D4037\]::after { /* Added gradient overlay */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3));
-    z-index: 0; /* Ensure overlay is behind content */
-}
-
-/* Ensure container content is above overlay */
-.bg-\[\#5D4037\] .container {
-    position: relative;
-    z-index: 1;
-}
-/* END: Added CSS rules for Call to Action Banner */
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineeth N - MCP Developer & AI Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: #1e3a8a;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23cbd5e0" opacity="0.4"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .professional-title {
+            display: inline-block;
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn.primary {
+            background: #1e3a8a;
+            color: white;
+            border: 2px solid #1e3a8a;
+        }
+
+        .btn.primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: #1e3a8a;
+            border: 2px solid #1e3a8a;
+        }
+
+        .btn.secondary:hover {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 3rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: #1e3a8a;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-header {
+            margin-bottom: 2rem;
+        }
+
+        .product-icon {
+            width: 70px;
+            height: 70px;
+            background: #1e3a8a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .product-header h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .product-category {
+            color: #718096;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-description {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .product-tech {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .product-tech span {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .journey-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-number {
+            background: #1e3a8a;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #1e3a8a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-category h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-category h3 i {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.8rem 0;
+            color: #4a5568;
+            border-bottom: 1px solid #f1f5f9;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .skill-category li:hover {
+            color: #1e3a8a;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Current Focus Section */
+        .current-focus {
+            padding: 100px 0;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+        }
+
+        .current-focus .section-title {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .focus-highlight {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .focus-highlight h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .focus-highlight p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .focus-cta {
+            background: white;
+            color: #1e3a8a;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .focus-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: #1e3a8a;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .contact-item span {
+            color: #4a5568;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a202c;
+            color: #a0aec0;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-number {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .product-card,
+            .skill-category,
+            .contact-item {
+                padding: 2rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Subtle animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- Schema.org Markup for Local Business -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Cowboy Garage Doors",
-  "image": "https://github.com/vineethnj/Cowboy-garage-doors/blob/main/ChatGPT%20Image%20Apr%2013,%202025,%2012_02_35%20PM.png?raw=true",
-  "url": "https://cowboygaragedoors.com",
-  "telephone": "+1-123-456-7890",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "123 Western Ave",
-    "addressLocality": "Fort Worth",
-    "addressRegion": "TX",
-    "postalCode": "76101",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 32.755489,
-    "longitude": -97.330766
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "09:00",
-      "closes": "16:00"
-    }
-  ],
-  "priceRange": "$$",
-  "sameAs": [
-    "https://www.facebook.com/cowboygaragedoors",
-    "https://www.instagram.com/cowboygaragedoors",
-    "https://twitter.com/cowboygarage"
-  ]
-}
-</script>
-
-<!-- Submit Feedback Message -->
-<div class="submit-feedback" id="submit-feedback">
-    Thank you for your message! Our team will contact you shortly.
-</div>
-
-<!-- Header and Navigation -->
-<header class="header-fixed" id="site-header">
-  <div class="container mx-auto">
-    <div class="flex justify-between items-center py-4">
-      <div class="flex items-center">
-        <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/door-open.svg" alt="Cowboy Garage Doors Logo" class="h-10 w-10 mr-3" style="filter: invert(22%) sepia(38%) saturate(894%) hue-rotate(336deg) brightness(92%) contrast(83%);">
-        <div>
-          <h1 class="text-2xl font-bold text-gray-800">Cowboy Garage Doors</h1>
-          <p class="text-xs text-gray-600">Professional Garage Door Services</p>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Vineeth N</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">Journey</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#current">Current</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-10">
-        <a href="#home" class="navigation-link text-gray-800 active" data-section="home">Home</a>
-        <a href="#services" class="navigation-link text-gray-800" data-section="services">Services</a>
-        <a href="#about" class="navigation-link text-gray-800" data-section="about">About Us</a>
-        <a href="#testimonials" class="navigation-link text-gray-800" data-section="testimonials">Testimonials</a>
-        <a href="#contact" class="navigation-link text-gray-800" data-section="contact">Contact</a>
-        <a href="tel:+11234567890" class="btn-primary classic-button flex items-center">
-          <i class="fas fa-phone-alt mr-2"></i>Call Now
-        </a>
-      </div>
-      <!-- Mobile Navigation Toggle -->
-      <div class="md:hidden flex items-center">
-        <button id="mobile-menu-button" class="text-gray-800 focus:outline-none" aria-label="Toggle mobile menu">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="mobile-menu-enter md:hidden hidden pt-4 pb-6 border-t border-gray-200">
-      <div class="flex flex-col space-y-4">
-        <a href="#home" class="text-gray-800 hover:text-[#5D4037] py-2 active" data-section="home">Home</a>
-        <a href="#services" class="text-gray-800 hover:text-[#5D4037] py-2" data-section="services">Services</a>
-        <a href="#about" class="text-gray-800 hover:text-[#5D4037] py-2" data-section="about">About Us</a>
-        <a href="#testimonials" class="text-gray-800 hover:text-[#5D4037] py-2" data-section="testimonials">Testimonials</a>
-        <a href="#contact" class="text-gray-800 hover:text-[#5D4037] py-2" data-section="contact">Contact</a>
-        <a href="tel:+11234567890" class="btn-primary classic-button flex items-center justify-center mt-2">
-          <i class="fas fa-phone-alt mr-2"></i>Call Now
-        </a>
-      </div>
-    </div>
-  </div>
-</header>
+    </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero-pattern min-h-screen flex items-center relative">
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 text-white mb-12 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-shadow">Exceptional Garage Door Services With Integrity</h2>
-        <p class="text-xl mb-10 opacity-90 max-w-xl">Professional installation, repair, and maintenance for residential and commercial properties – with same-day service available.</p>
-        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <a href="tel:+15551234567" class="btn-primary classic-button text-lg">
-                <i class="fas fa-phone-alt mr-2"></i>Call Now
-              </a>
-          <a href="#services" class="btn-secondary classic-button text-lg">
-            <i class="fas fa-tools mr-2"></i>Our Services
-          </a>
-        </div>
-      </div>
-      <div class="md:w-1/2 px-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-        <div class="relative rounded-lg overflow-hidden shadow-2xl">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/ChatGPT%20Image%20Apr%2013,%202025,%2011_55_33%20AM.png?raw=true" alt="Professional Garage Door Technician" class="w-full rounded-lg">
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
-            <p class="text-white text-lg font-medium">Expert technicians, quality installations</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Features Section -->
-<section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-    <div class="container mx-auto px-6">
-      <!-- Modern Service Feature Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <!-- Same-Day Service -->
-        <div class="relative overflow-hidden group">
-          <div class="h-full bg-white border-b-4 border-[#5D4037] rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-            <!-- Top Strip -->
-            <div class="h-1.5 w-full bg-[#5D4037] transform origin-left transition-all duration-500 group-hover:scale-x-0"></div>
-
-            <!-- Content -->
-            <div class="p-8">
-              <!-- Icon -->
-              <div class="inline-flex p-3 rounded-lg bg-[#5D4037]/10 text-[#5D4037] mb-6">
-                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
-                </svg>
-              </div>
-
-              <!-- Title -->
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">Same-Day Service</h3>
-
-              <!-- Description -->
-              <p class="text-gray-600 mb-6">We understand emergencies happen. That's why we offer prompt same-day service to get your garage door functioning properly again.</p>
-
-              <!-- CTA -->
-              <div class="relative">
-                <span class="inline-block text-[#5D4037] font-semibold group-hover:translate-x-2 transition-transform duration-300">Get Help Today</span>
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#5D4037] group-hover:w-32 transition-all duration-300"></span>
-              </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="professional-title">MCP Developer & AI Engineer</div>
+            <h1>Vineeth N</h1>
+            <h2>Building Intelligence Through Code</h2>
+            <p>Specialized in Model Context Protocol development and AI engineering. Creator of intelligent software solutions that transform business operations through advanced AI integration and automation.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn primary">View Products</a>
+                <a href="#contact" class="btn secondary">Get In Touch</a>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Quality Guaranteed -->
-        <div class="relative overflow-hidden group">
-          <div class="h-full bg-white border-b-4 border-[#5D4037] rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-            <!-- Top Strip -->
-            <div class="h-1.5 w-full bg-[#5D4037] transform origin-left transition-all duration-500 group-hover:scale-x-0"></div>
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">AI Software Products</h2>
+            <p class="section-subtitle">Innovative solutions that leverage cutting-edge AI technology to solve real-world business challenges</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>VoxAi</h3>
+                        <div class="product-category">AI Call Agent Platform</div>
+                    </div>
+                    <div class="product-description">
+                        Revolutionary AI-powered call agent system that handles customer interactions with human-like conversation capabilities. Automates business communications through advanced voice AI technology, reducing operational costs while improving customer experience.
+                    </div>
+                    <div class="product-tech">
+                        <span>Voice AI</span>
+                        <span>Natural Language Processing</span>
+                        <span>Call Automation</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </div>
 
-            <!-- Content -->
-            <div class="p-8">
-              <!-- Icon -->
-              <div class="inline-flex p-3 rounded-lg bg-[#5D4037]/10 text-[#5D4037] mb-6">
-                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
-                </svg>
-              </div>
-
-              <!-- Title -->
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">Quality Guaranteed</h3>
-
-              <!-- Description -->
-              <p class="text-gray-600 mb-6">We stand behind our work with industry-leading warranties and use only premium parts and materials for lasting performance.</p>
-
-              <!-- CTA -->
-              <div class="relative">
-                <span class="inline-block text-[#5D4037] font-semibold group-hover:translate-x-2 transition-transform duration-300">Our Warranty</span>
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#5D4037] group-hover:w-32 transition-all duration-300"></span>
-              </div>
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3>NeuraHire AI</h3>
+                        <div class="product-category">Intelligent Recruitment System</div>
+                    </div>
+                    <div class="product-description">
+                        You're staring at a pile of resumes, knowing you have to call each candidate for the first round. It's repetitive, time-consuming, and honestly... draining. What if there was a smarter way? NeuraHire calls candidates one by one, asks the right questions based on their resume, and brings only the best to your attention. No more manual screening. Just smarter, faster hiring.
+                    </div>
+                    <div class="product-tech">
+                        <span>AI Screening</span>
+                        <span>Resume Analysis</span>
+                        <span>Automated Interviews</span>
+                        <span>Candidate Scoring</span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Expert Technicians -->
-        <div class="relative overflow-hidden group">
-          <div class="h-full bg-white border-b-4 border-[#5D4037] rounded-lg shadow-lg transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-            <!-- Top Strip -->
-            <div class="h-1.5 w-full bg-[#5D4037] transform origin-left transition-all duration-500 group-hover:scale-x-0"></div>
-
-            <!-- Content -->
-            <div class="p-8">
-              <!-- Icon -->
-              <div class="inline-flex p-3 rounded-lg bg-[#5D4037]/10 text-[#5D4037] mb-6">
-                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 7H16.5L19 9.5V16.5L16.5 19H7.5L5 16.5V9.5L7.5 7H10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" fill="currentColor"/>
-                </svg>
-              </div>
-
-              <!-- Title -->
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">Expert Technicians</h3>
-
-              <!-- Description -->
-              <p class="text-gray-600 mb-6">Our certified technicians bring years of experience and professional craftsmanship to every job we undertake.</p>
-
-              <!-- CTA -->
-              <div class="relative">
-                <span class="inline-block text-[#5D4037] font-semibold group-hover:translate-x-2 transition-transform duration-300">Meet Our Team</span>
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#5D4037] group-hover:w-32 transition-all duration-300"></span>
-              </div>
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <p class="section-subtitle">A systematic progression through software engineering, AI research, and entrepreneurial innovation</p>
+            
+            <div class="journey-container">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Software Engineering Foundation</h3>
+                        <p>Established core programming expertise with focus on algorithms, data structures, and system architecture. Built foundational knowledge in multiple programming languages and development methodologies that would prove essential for advanced AI work.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>AI & Machine Learning Specialization</h3>
+                        <p>Deep immersion into machine learning algorithms, neural networks, and data science methodologies. Mastered frameworks like TensorFlow and PyTorch while developing expertise in natural language processing and computer vision applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>AI Research & Development</h3>
+                        <p>Served as AI Researcher at startup environments during academic studies, gaining hands-on experience with Large Language Models and advanced AI systems. Developed practical solutions while contributing to cutting-edge research initiatives.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>MCP Development Expertise</h3>
+                        <p>Specialized in Model Context Protocol development and implementation. Became proficient in LangChain, CrewAI, LlamaIndex, and Django frameworks. Built robust integrations and intelligent agent systems for enterprise applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3>AI Product Innovation</h3>
+                        <p>Transitioned from research to product development, creating VoxAi and NeuraHire AI. Currently focused on building cost-effective MCP client solutions while developing next-generation AI software products for business automation.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-      </div>
-    </div>
-  </section>
-
-<!-- Stats Section -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="stats-counter" data-aos="fade-up" data-aos-delay="100">
-        <div class="number count-up" data-count="15">0</div>
-        <div class="label">Years Experience</div>
-      </div>
-      <div class="stats-counter" data-aos="fade-up" data-aos-delay="200">
-        <div class="number count-up" data-count="428">0</div>
-        <div class="label">Installations Completed</div>
-      </div>
-      <div class="stats-counter" data-aos="fade-up" data-aos-delay="300">
-        <div class="number count-up" data-count="210">0</div>
-        <div class="label">Repairs Performed</div>
-      </div>
-      <div class="stats-counter" data-aos="fade-up" data-aos-delay="400">
-        <div class="number count-up" data-count="98">0</div>
-        <div class="label">Customer Satisfaction</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="py-20 bg-gray-50 bg-pattern">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Professional Services</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">We provide comprehensive garage door services for both residential and commercial properties with reliability and integrity.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Garage Door Repair -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/34d9441a-a583-493e-9107-4da3b820afa1.jpg?raw=true" alt="Garage Door Repair" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Garage Door Repair</h3>
-          <p class="text-gray-600 mb-6">Our quick-response repair service addresses broken springs, damaged panels, misaligned tracks, and opener issues with efficiency and expertise.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Spring Replacement</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Cable & Track Repair</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Opener Troubleshooting</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Schedule Repair</a>
-          </div>
-        </div>
-      </div>
-      <!-- Garage Door Installation -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/a64381fe-62f0-4845-906c-882b47bc2fac.jpg?raw=true" alt="Garage Door Installation" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Door Installation</h3>
-          <p class="text-gray-600 mb-6">From classic designs to modern styles, we install high-quality garage doors that enhance your property's security and curb appeal.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Residential Installation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Commercial Installation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Custom Design Options</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Get a Quote</a>
-          </div>
-        </div>
-      </div>
-      <!-- Garage Door Maintenance -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/e45589b4-693f-4ee6-8052-346a1cd52b3a.jpg?raw=true" alt="Garage Door Maintenance" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Preventive Maintenance</h3>
-          <p class="text-gray-600 mb-6">Regular maintenance extends the life of your garage door and prevents costly repairs, ensuring smooth operation year-round.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Safety Inspections</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Lubrication Service</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Hardware Tightening</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Schedule Service</a>
-          </div>
-        </div>
-      </div>
-      <!-- Garage Door Openers -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/07a3c615-5ddb-4d1b-9883-843e84dce5f8.jpg?raw=true" alt="Garage Door Openers" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Garage Door Openers</h3>
-          <p class="text-gray-600 mb-6">We install and repair high-quality garage door openers with the latest technology for quiet, reliable performance and security.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Smart Opener Installation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Remote Programming</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Keypad Entry Systems</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Explore Options</a>
-          </div>
-        </div>
-      </div>
-      <!-- Commercial Services -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/6f4029cd-69e3-4923-834f-c465081fe282.jpg?raw=true" alt="Commercial Garage Door Services" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Commercial Services</h3>
-          <p class="text-gray-600 mb-6">We provide specialized services for warehouses, loading docks, retail locations, and industrial facilities with 24/7 emergency support.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Industrial Door Installation</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Loading Dock Equipment</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Fire Door Compliance</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Business Inquiry</a>
-          </div>
-        </div>
-      </div>
-      <!-- Custom Garage Doors -->
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/adfd3b7d-b74a-46a5-bae1-9bc116f77511.jpg?raw=true" alt="Custom Garage Doors" class="w-full h-64 object-cover">
-        </div>
-        <div class="card-content">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Custom Garage Doors</h3>
-          <p class="text-gray-600 mb-6">Stand out with a custom-designed garage door that perfectly complements your home's architecture and reflects your personal style.</p>
-          <ul class="text-gray-600 mb-8 space-y-3">
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Premium Design Options</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Material Selection</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-check text-[#5D4037] mr-3"></i>
-              <span>Decorative Hardware</span>
-            </li>
-          </ul>
-          <div class="card-footer">
-            <a href="#contact" class="btn-primary classic-button">Design Consultation</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Call to Action Banner -->
-<!-- START: Modified Call to Action Banner -->
-<!-- Note: The original code didn't have a distinct section here, but the CTA logic is implemented in the section below ('Transform Your Home...') -->
-<!-- END: Modified Call to Action Banner -->
-
-<!-- About Us Section -->
-<section id="about" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">About Cowboy Garage Doors</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">Founded on the principles of reliability, honesty, and exceptional craftsmanship, we've been servicing garage doors across the region for over 15 years.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="flex flex-col md:flex-row mt-12">
-      <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12" data-aos="fade-right">
-        <div class="rounded-lg overflow-hidden shadow-xl mb-8">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/c81e1b27-9a38-46d7-a847-296eb21ba770.jpg?raw=true" alt="Cowboy Garage Doors Team" class="w-full transform transition duration-700 hover:scale-105">
-        </div>
-        <div class="grid grid-cols-2 gap-6">
-          <div class="rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="100">
-            <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/d4e4d617-2ddd-4742-9df8-02d78ccdae40.jpg?raw=true" alt="Cowboy Garage Doors Service Vehicle" class="w-full h-48 object-cover transform transition duration-700 hover:scale-110">
-          </div>
-          <div class="rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="200">
-            <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/a64381fe-62f0-4845-906c-882b47bc2fac.jpg?raw=true" alt="Garage Door Installation" class="w-full h-48 object-cover transform transition duration-700 hover:scale-110">
-          </div>
-        </div>
-      </div>
-      <div class="md:w-1/2" data-aos="fade-left">
-        <h3 class="text-3xl font-bold text-gray-800 mb-6">Our Story</h3>
-        <p class="text-gray-600 mb-8 leading-relaxed">Cowboy Garage Doors was founded by Jim Weston, a third-generation craftsman who saw the need for honest, reliable garage door services in the community. Starting with just one truck and a commitment to quality, we've grown to become the region's most trusted garage door specialists.</p>
-        <h3 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h3>
-        <p class="text-gray-600 mb-8 leading-relaxed">We're committed to providing the highest quality garage door services with dependability and integrity. Every job is completed with meticulous attention to detail and backed by our satisfaction guarantee.</p>
-        <h3 class="text-3xl font-bold text-gray-800 mb-6">Why Choose Us?</h3>
-        <ul class="text-gray-600 space-y-4 mb-10">
-          <li class="flex items-start" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-check-circle text-[#5D4037] mt-1 mr-4 text-xl"></i>
-            <span><strong class="text-gray-800">Experience:</strong> Over 15 years of industry experience and thousands of satisfied customers</span>
-          </li>
-          <li class="flex items-start" data-aos="fade-up" data-aos-delay="150">
-            <i class="fas fa-check-circle text-[#5D4037] mt-1 mr-4 text-xl"></i>
-            <span><strong class="text-gray-800">Quality:</strong> Premium materials and parts with comprehensive warranties</span>
-          </li>
-          <li class="flex items-start" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-check-circle text-[#5D4037] mt-1 mr-4 text-xl"></i>
-            <span><strong class="text-gray-800">Reliability:</strong> Same-day service and 24/7 emergency support when you need it most</span>
-          </li>
-          <li class="flex items-start" data-aos="fade-up" data-aos-delay="250">
-            <i class="fas fa-check-circle text-[#5D4037] mt-1 mr-4 text-xl"></i>
-            <span><strong class="text-gray-800">Expertise:</strong> Certified technicians with ongoing training in the latest garage door technology</span>
-          </li>
-          <li class="flex items-start" data-aos="fade-up" data-aos-delay="300">
-            <i class="fas fa-check-circle text-[#5D4037] mt-1 mr-4 text-xl"></i>
-            <span><strong class="text-gray-800">Value:</strong> Competitive pricing without compromising on service quality</span>
-          </li>
-        </ul>
-        <div data-aos="fade-up" data-aos-delay="350">
-          <a href="#contact" class="btn-primary classic-button text-lg">Contact Our Team</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Products Showcase -->
-<section class="py-20 bg-gray-50 bg-pattern">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Our Garage Door Styles</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">Explore our selection of high-quality garage doors from traditional to contemporary designs perfect for any home.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
-      <div class="service-card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/e45589b4-693f-4ee6-8052-346a1cd52b3a.jpg?raw=true" alt="Modern Garage Door Style" class="w-full h-72 object-cover">
-        </div>
-        <div class="p-8">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Modern Collection</h3>
-          <p class="text-gray-600">Sleek, contemporary designs with clean lines and modern materials for a sophisticated aesthetic.</p>
-        </div>
-      </div>
-      <div class="service-card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/34d9441a-a583-493e-9107-4da3b820afa1.jpg?raw=true" alt="Carriage House Garage Door Style" class="w-full h-72 object-cover">
-        </div>
-        <div class="p-8">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Carriage House Collection</h3>
-          <p class="text-gray-600">Classic carriage house designs with timeless details that add character and charm to your home.</p>
-        </div>
-      </div>
-      <div class="service-card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-        <div class="image-container">
-          <img src="https://github.com/vineethnj/Cowboy-garage-doors/blob/main/a64381fe-62f0-4845-906c-882b47bc2fac.jpg?raw=true" alt="Traditional Themed Garage Door" class="w-full h-72 object-cover">
-        </div>
-        <div class="p-8">
-          <h3 class="text-2xl font-bold mb-4 text-gray-800">Heritage Collection</h3>
-          <p class="text-gray-600">Distinctive traditional designs with elegant finishes and authentic details for classic appeal.</p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-16" data-aos="fade-up">
-      <a href="#contact" class="btn-primary classic-button text-lg">Schedule a Design Consultation</a>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">What Our Customers Say</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Hear from our satisfied customers about their experience with Cowboy Garage Doors.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
-      <div class="testimonial-card p-8 shadow-lg h-full" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center mb-6">
-          <div class="text-[#5D4037] mr-2">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <span class="text-gray-600 font-semibold">5.0</span>
-        </div>
-        <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"Cowboy Garage Doors came through when my garage door spring broke on a Sunday. Their technician was here within 2 hours and had everything fixed quickly. Great service, fair pricing, and honest folks!"</p>
-        <div class="flex items-center mt-auto">
-          <div class="w-14 h-14 rounded-full bg-[#5D4037] flex items-center justify-center mr-4 text-white">
-            <i class="fas fa-user"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-gray-800 text-lg">Robert Thompson</h4>
-            <p class="text-gray-500">Fort Worth, TX</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card p-8 shadow-lg h-full" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center mb-6">
-          <div class="text-[#5D4037] mr-2">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <span class="text-gray-600 font-semibold">5.0</span>
-        </div>
-        <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"We had Cowboy Garage Doors install a new garage door on our home. From the design consultation to the installation, everything was handled professionally. The carriage door they recommended looks perfect with our home."</p>
-        <div class="flex items-center mt-auto">
-          <div class="w-14 h-14 rounded-full bg-[#5D4037] flex items-center justify-center mr-4 text-white">
-            <i class="fas fa-user"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-gray-800 text-lg">Sarah Johnson</h4>
-            <p class="text-gray-500">Arlington, TX</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card p-8 shadow-lg h-full" data-aos="fade-up" data-aos-delay="300">
-        <div class="flex items-center mb-6">
-          <div class="text-[#5D4037] mr-2">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
-          <span class="text-gray-600 font-semibold">4.5</span>
-        </div>
-        <p class="text-gray-600 italic mb-8 text-lg leading-relaxed">"I manage a commercial warehouse and have used Cowboy Garage Doors for all our maintenance needs for years. Their technicians are always on time, professional, and efficient. They've saved us from several potential operational delays."</p>
-        <div class="flex items-center mt-auto">
-          <div class="w-14 h-14 rounded-full bg-[#5D4037] flex items-center justify-center mr-4 text-white">
-            <i class="fas fa-user"></i>
-          </div>
-          <div>
-            <h4 class="font-bold text-gray-800 text-lg">Michael Davis</h4>
-            <p class="text-gray-500">Dallas, TX</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Call to Action Section -->
-<section class="py-20 bg-[#EFEBE9] relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10 bg-cover bg-center" style="background-image: url('https://github.com/vineethnj/Cowboy-garage-doors/blob/main/e45589b4-693f-4ee6-8052-346a1cd52b3a.jpg?raw=true');"></div>
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#3E2723] mb-8">Transform Your Home with a New Garage Door</h2>
-      <p class="text-lg text-[#3E2723] mb-10 leading-relaxed">A new garage door is one of the most cost-effective ways to enhance your home's curb appeal and increase its value. Contact us today for a free design consultation and estimate.</p>
-      <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-        <a href="tel:+11234567890" class="bg-[#5D4037] text-white hover:bg-[#3E2723] classic-button text-lg">
-          <i class="fas fa-phone-alt mr-2"></i>Call (123) 456-7890
-        </a>
-        <a href="#contact" class="bg-white text-[#5D4037] hover:bg-gray-100 classic-button text-lg">
-          <i class="fas fa-envelope mr-2"></i>Request a Quote
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ Section -->
-<section id="faq" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Frequently Asked Questions</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">Find answers to some of our most commonly asked questions about garage doors and our services.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="max-w-4xl mx-auto mt-12 space-y-6">
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-        <div class="faq-question" data-faq="1">
-          <h3 class="text-xl font-bold text-gray-800">How long does a garage door installation take?</h3>
-          <i class="fas fa-chevron-down text-[#5D4037]"></i>
-        </div>
-        <div class="faq-answer" data-faq="1">
-          <p class="text-gray-600 leading-relaxed">A standard garage door installation typically takes 4-6 hours, depending on the complexity of the job and whether old door removal is required. Our technicians work efficiently to minimize disruption to your daily routine while ensuring quality installation.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
-        <div class="faq-question" data-faq="2">
-          <h3 class="text-xl font-bold text-gray-800">What types of garage door materials do you offer?</h3>
-          <i class="fas fa-chevron-down text-[#5D4037]"></i>
-        </div>
-        <div class="faq-answer" data-faq="2">
-          <p class="text-gray-600 leading-relaxed">We offer garage doors in a variety of materials including steel, wood, aluminum, fiberglass, and vinyl. Each material has unique benefits in terms of appearance, insulation, durability, and maintenance requirements. Our team can help you select the best option for your specific needs and aesthetic preferences.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-        <div class="faq-question" data-faq="3">
-          <h3 class="text-xl font-bold text-gray-800">How often should garage door maintenance be performed?</h3>
-          <i class="fas fa-chevron-down text-[#5D4037]"></i>
-        </div>
-        <div class="faq-answer" data-faq="3">
-          <p class="text-gray-600 leading-relaxed">We recommend professional garage door maintenance at least once a year to ensure safe and reliable operation. However, commercial doors or those with heavy usage may require more frequent service. Regular maintenance extends the life of your door and can prevent costly emergency repairs in the future.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-        <div class="faq-question" data-faq="4">
-          <h3 class="text-xl font-bold text-gray-800">Do you offer warranties on your services?</h3>
-          <i class="fas fa-chevron-down text-[#5D4037]"></i>
-        </div>
-        <div class="faq-answer" data-faq="4">
-          <p class="text-gray-600 leading-relaxed">Yes, we stand behind our work with comprehensive warranties. New garage door installations typically come with a manufacturer's warranty on parts (varying by manufacturer) and our own labor warranty. Repair services are also backed by a warranty on both parts and labor. We'll provide full warranty details before any work begins.</p>
-        </div>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-        <div class="faq-question" data-faq="5">
-          <h3 class="text-xl font-bold text-gray-800">How quickly can you respond to an emergency garage door issue?</h3>
-          <i class="fas fa-chevron-down text-[#5D4037]"></i>
-        </div>
-        <div class="faq-answer" data-faq="5">
-          <p class="text-gray-600 leading-relaxed">For emergency situations, we offer same-day service in most cases. Our technicians are dispatched quickly to address urgent issues like doors that won't close or severe damage. We maintain fully-stocked service vehicles to complete most repairs in a single visit, minimizing downtime and inconvenience.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-gray-50 bg-pattern">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Contact Us</h2>
-      <p class="mt-8 text-lg text-gray-600 max-w-3xl mx-auto">Have questions or ready to get started? Contact our team for quick, friendly service and expert advice.</p>
-    </div>
-    <div class="classic-divider"></div>
-    <div class="flex flex-col lg:flex-row mt-12">
-      <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0" data-aos="fade-right">
-        <form id="contactForm" class="bg-white p-10 rounded-lg shadow-xl contact-form">
-          <h3 class="text-2xl font-bold text-gray-800 mb-8">Send Us a Message</h3>
-          <div class="form-group mb-6">
-            <label for="fullName" class="block text-gray-700 mb-2">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required class="w-full px-4 py-3 rounded-lg">
-            <div class="error-message">Please enter your full name</div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div class="form-group">
-              <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Your email address" required class="w-full px-4 py-3 rounded-lg">
-              <div class="error-message">Please enter a valid email address</div>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <p class="section-subtitle">Comprehensive skill set spanning AI development, software engineering, and system architecture</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> MCP Development</h3>
+                    <ul>
+                        <li>Model Context Protocol Architecture</li>
+                        <li>Client-Server Integration</li>
+                        <li>Protocol Optimization</li>
+                        <li>Enterprise MCP Solutions</li>
+                        <li>System Scalability</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Artificial Intelligence</h3>
+                    <ul>
+                        <li>Large Language Models</li>
+                        <li>AI Agent Development</li>
+                        <li>Machine Learning Algorithms</li>
+                        <li>Deep Learning Networks</li>
+                        <li>Natural Language Processing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> AI Frameworks</h3>
+                    <ul>
+                        <li>LangChain Integration</li>
+                        <li>CrewAI Multi-Agent Systems</li>
+                        <li>LlamaIndex RAG Implementation</li>
+                        <li>TensorFlow & PyTorch</li>
+                        <li>Hugging Face Transformers</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Software Engineering</h3>
+                    <ul>
+                        <li>Python Development</li>
+                        <li>JavaScript & TypeScript</li>
+                        <li>Django Framework</li>
+                        <li>FastAPI & REST APIs</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-microphone"></i> Voice Technology</h3>
+                    <ul>
+                        <li>Speech Recognition Systems</li>
+                        <li>Text-to-Speech Synthesis</li>
+                        <li>Voice Processing Algorithms</li>
+                        <li>Call Automation Protocols</li>
+                        <li>Audio Signal Processing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-project-diagram"></i> System Architecture</h3>
+                    <ul>
+                        <li>Distributed Systems Design</li>
+                        <li>Cloud Platform Integration</li>
+                        <li>Microservices Architecture</li>
+                        <li>Performance Optimization</li>
+                        <li>Security Implementation</li>
+                    </ul>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number" required class="w-full px-4 py-3 rounded-lg">
-              <div class="error-message">Please enter a valid phone number</div>
-            </div>
-          </div>
-          <div class="form-group mb-6">
-            <label for="serviceType" class="block text-gray-700 mb-2">Service Needed</label>
-            <select id="serviceType" name="serviceType" class="w-full px-4 py-3 rounded-lg">
-              <option value="">-- Select a service --</option>
-              <option value="repair">Garage Door Repair</option>
-              <option value="installation">New Door Installation</option>
-              <option value="maintenance">Maintenance Service</option>
-              <option value="opener">Garage Door Opener</option>
-              <option value="commercial">Commercial Service</option>
-              <option value="other">Other/Not Sure</option>
-            </select>
-            <div class="error-message">Please select a service</div>
-          </div>
-          <div class="form-group mb-8">
-            <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Please provide details about your garage door needs" class="w-full px-4 py-3 rounded-lg"></textarea>
-            <div class="error-message">Please enter your message</div>
-          </div>
-          <button type="submit" id="submitButton" class="btn-primary classic-button text-lg w-full btn-loading">
-            <span class="btn-text">Submit Request</span>
-          </button>
-        </form>
-      </div>
-      <div class="lg:w-1/2" data-aos="fade-left">
-        <div class="bg-white p-10 rounded-lg shadow-xl h-full flex flex-col">
-          <h3 class="text-2xl font-bold text-gray-800 mb-8">Contact Information</h3>
-          <div class="space-y-8 mb-10">
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="contact-info-content">
-                <h4 class="text-xl text-gray-800">Our Location</h4>
-                <p class="text-gray-600">123 Western Ave, Fort Worth, TX 76101</p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div class="contact-info-content">
-                <h4 class="text-xl text-gray-800">Phone Number</h4>
-                <p class="text-gray-600"><a href="tel:+11234567890" class="hover:text-[#5D4037] transition-colors">(123) 456-7890</a></p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-info-content">
-                <h4 class="text-xl text-gray-800">Email Address</h4>
-                <p class="text-gray-600"><a href="mailto:info@cowboygaragedoors.com" class="hover:text-[#5D4037] transition-colors">info@cowboygaragedoors.com</a></p>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="contact-info-content">
-                <h4 class="text-xl text-gray-800">Business Hours</h4>
-                <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p class="text-gray-600">Saturday: 9:00 AM - 4:00 PM</p>
-                <p class="text-gray-600">Sunday: Closed (Emergency Service Available)</p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-auto">
-            <h4 class="text-xl font-bold text-gray-800 mb-4">Our Location</h4>
-            <div class="rounded-lg overflow-hidden h-64 shadow-lg">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53716.39592728946!2d-97.36812695!3d32.7554889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e6e122dc807ad%3A0xa4af8bf8dd69acbd!2sFort%20Worth%2C%20TX!5e0!3m2!1sen!2sus!4v1652364813135!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps - Cowboy Garage Doors Location">
-              </iframe>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="footer py-16 text-white">
-  <div class="container mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center mb-8">
-          <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/door-open.svg" alt="Cowboy Garage Doors Logo" class="h-10 w-10 mr-3" style="filter: invert(100%);">
-          <div>
-            <h3 class="text-2xl font-bold">Cowboy Garage Doors</h3>
-            <p class="text-gray-300 text-sm">Professional Garage Door Services</p>
-          </div>
+    <section id="current" class="current-focus">
+        <div class="container">
+            <h2 class="section-title">Current Focus</h2>
+            <div class="focus-highlight">
+                <h3>Universal MCP Client Development</h3>
+                <p>Currently developing the most cost-effective and comprehensive MCP client solutions for seamless integration with any server architecture. Creating standardized, scalable Model Context Protocol implementations that democratize AI agent connectivity across all platforms and industries.</p>
+                <a href="#contact" class="focus-cta">Discuss Collaboration</a>
+            </div>
         </div>
-        <p class="text-gray-300 mb-8 leading-relaxed">Providing professional garage door installation, repair, and maintenance services with reliability and integrity since 2008.</p>
-        <div class="flex space-x-4">
-          <a href="#" class="footer-social-icon" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="footer-social-icon" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#" class="footer-social-icon" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="footer-social-icon" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Professional Contact</h2>
+            <p class="section-subtitle">Available for consulting, collaboration, and discussing innovative AI solutions</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <span>vineeth.n@orbitrar.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h4>LinkedIn</h4>
+                    <span>vineeth-n-4237a4290</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h4>GitHub</h4>
+                    <span>vineethnj (lazy pusher)</span>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <h4>Portfolio</h4>
+                    <span>AI Product Developer</span>
+                </div>
+            </div>
         </div>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <h3 class="text-xl font-bold mb-8">Quick Links</h3>
-        <ul>
-          <li>
-            <a href="#home" class="footer-link text-gray-300 hover:text-white">Home</a>
-          </li>
-          <li>
-            <a href="#services" class="footer-link text-gray-300 hover:text-white">Services</a>
-          </li>
-          <li>
-            <a href="#about" class="footer-link text-gray-300 hover:text-white">About Us</a>
-          </li>
-          <li>
-            <a href="#testimonials" class="footer-link text-gray-300 hover:text-white">Testimonials</a>
-          </li>
-          <li>
-            <a href="#faq" class="footer-link text-gray-300 hover:text-white">FAQ</a>
-          </li>
-          <li>
-            <a href="#contact" class="footer-link text-gray-300 hover:text-white">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-      <div data-aos="fade-up" data-aos-delay="300">
-        <h3 class="text-xl font-bold mb-8">Service Areas</h3>
-        <div class="grid grid-cols-2 gap-4">
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Fort Worth</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Arlington</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Dallas</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Weatherford</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Burleson</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Mansfield</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Keller</span>
-          <span class="text-gray-300"><i class="fas fa-map-marker-alt mr-2 text-[#A1887F]"></i>Southlake</span>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Vineeth N. Professional AI Engineer & Software Developer.</p>
         </div>
-        <div class="mt-10">
-          <h3 class="text-xl font-bold mb-6">Newsletter</h3>
-          <p class="text-gray-300 mb-4">Subscribe for special offers and tips:</p>
-          <form id="newsletterForm" class="flex">
-            <input type="email" id="newsletterEmail" placeholder="Your email address" class="px-4 py-3 rounded-l-lg w-full text-gray-800 focus:outline-none">
-            <button type="submit" class="bg-[#5D4037] text-white px-5 py-3 rounded-r-lg hover:bg-[#A1887F] transition duration-300 btn-loading">
-              <span class="btn-text"><i class="fas fa-paper-plane"></i></span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-gray-700 mt-12 pt-8 text-center">
-      <p class="text-gray-400">© 2025 Cowboy Garage Doors. All rights reserved. </p>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<!-- Back to Top Button -->
-<a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-[#5D4037] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 translate-y-10 z-50">
-  <i class="fas fa-chevron-up"></i>
-</a>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        // Navigation active state
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-<script>
-// Initialize AOS
-AOS.init({
-  duration: 800,
-  easing: 'ease-out-cubic',
-  once: true,
-  offset: 50
-});
-
-// DOM Elements
-const header = document.getElementById('site-header');
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const backToTopButton = document.getElementById('back-to-top');
-const contactForm = document.getElementById('contactForm');
-const submitFeedback = document.getElementById('submit-feedback');
-const submitButton = document.getElementById('submitButton');
-const newsletterForm = document.getElementById('newsletterForm');
-const navLinks = document.querySelectorAll('.navigation-link');
-const faqQuestions = document.querySelectorAll('.faq-question');
-const sections = document.querySelectorAll('section');
-
-// Mobile menu toggle
-mobileMenuButton.addEventListener('click', function() {
-  const isOpen = mobileMenu.classList.contains('active');
-  mobileMenu.classList.toggle('active');
-
-  if (isOpen) {
-    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-    mobileMenu.addEventListener('transitionend', function() {
-      mobileMenu.classList.add('hidden');
-    }, { once: true });
-  } else {
-    mobileMenuButton.innerHTML = '<i class="fas fa-times text-2xl"></i>';
-    mobileMenu.classList.remove('hidden');
-    // Give the browser a moment to recognize the element is no longer hidden before adding the active class
-    setTimeout(() => {
-      mobileMenu.classList.add('active');
-    }, 10);
-  }
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', function() {
-    mobileMenu.classList.remove('active');
-    mobileMenuButton.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-    setTimeout(() => {
-      mobileMenu.classList.add('hidden');
-    }, 500);
-  });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      // Calculate offset based on header height
-      const headerHeight = header.offsetHeight;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// FAQ accordion functionality
-faqQuestions.forEach(question => {
-  question.addEventListener('click', function() {
-    const faqId = this.getAttribute('data-faq');
-    const answer = document.querySelector(`.faq-answer[data-faq="${faqId}"]`);
-    const isOpen = this.classList.contains('active');
-
-    // Close all other questions
-    document.querySelectorAll('.faq-question.active').forEach(q => {
-      if (q !== this) {
-        q.classList.remove('active');
-        const qId = q.getAttribute('data-faq');
-        const qAnswer = document.querySelector(`.faq-answer[data-faq="${qId}"]`);
-        qAnswer.classList.remove('active');
-      }
-    });
-
-    // Toggle current question
-    if (isOpen) {
-      this.classList.remove('active');
-      answer.classList.remove('active');
-    } else {
-      this.classList.add('active');
-      answer.classList.add('active');
-    }
-  });
-});
-
-// Form validation
-function validateForm(form) {
-  let isValid = true;
-  const formGroups = form.querySelectorAll('.form-group');
-
-  formGroups.forEach(group => {
-    const input = group.querySelector('input, textarea, select');
-    if (!input) return;
-
-    // Reset state
-    group.classList.remove('error', 'success');
-
-    if (input.hasAttribute('required') && !input.value.trim()) {
-      group.classList.add('error');
-      isValid = false;
-      return;
-    }
-
-    // Email validation
-    if (input.type === 'email' && input.value) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(input.value)) {
-        group.classList.add('error');
-        isValid = false;
-        return;
-      }
-    }
-
-    // Phone validation
-    if (input.type === 'tel' && input.value) {
-      const phoneRegex = /^[0-9()+\-\s]{10,16}$/;
-      if (!phoneRegex.test(input.value)) {
-        group.classList.add('error');
-        isValid = false;
-        return;
-      }
-    }
-
-    // If we get here, this field is valid
-    if (input.value) {
-      group.classList.add('success');
-    }
-  });
-
-  return isValid;
-}
-
-// Form submission
-contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  if (!validateForm(this)) {
-    return false;
-  }
-
-  // Add loading state
-  submitButton.classList.add('loading');
-
-  // Simulate form submission (replace with actual AJAX call)
-  setTimeout(() => {
-    submitButton.classList.remove('loading');
-
-    // Show success message
-    submitFeedback.textContent = "Thank you for your message! Our team will contact you shortly."; // Ensure correct message
-    submitFeedback.classList.add('active');
-    this.reset();
-
-    // Clear success states
-    this.querySelectorAll('.form-group').forEach(group => {
-      group.classList.remove('success');
-    });
-
-    // Hide success message after a few seconds
-    setTimeout(() => {
-      submitFeedback.classList.remove('active');
-    }, 5000);
-  }, 1500);
-});
-
-// Newsletter form submission
-newsletterForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const emailInput = this.querySelector('input[type="email"]');
-  const submitBtn = this.querySelector('button[type="submit"]');
-
-  // Reset border
-  emailInput.classList.remove('border-red-500');
-
-  if (!emailInput.value.trim()) {
-    emailInput.classList.add('border-red-500');
-    return false;
-  }
-
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailInput.value)) {
-    emailInput.classList.add('border-red-500');
-    return false;
-  }
-
-  // Add loading state
-  submitBtn.classList.add('loading');
-
-  // Simulate submission
-  setTimeout(() => {
-    submitBtn.classList.remove('loading');
-    emailInput.value = '';
-
-    // Show success message
-    submitFeedback.textContent = "Thank you for subscribing to our newsletter!";
-    submitFeedback.classList.add('active');
-
-    // Hide success message after a few seconds
-    setTimeout(() => {
-      submitFeedback.classList.remove('active');
-      // Reset feedback text to default after hiding
-      submitFeedback.textContent = "Thank you for your message! Our team will contact you shortly.";
-    }, 3000);
-  }, 1000);
-});
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-
-  // Back to top button visibility
-  if (window.scrollY > 500) {
-    backToTopButton.classList.remove('opacity-0', 'translate-y-10');
-  } else {
-    backToTopButton.classList.add('opacity-0', 'translate-y-10');
-  }
-
-  // Update active navigation based on scroll position
-  let currentSection = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    // Adjusted offset to activate link slightly earlier when scrolling up
-    const offset = header.offsetHeight + 150;
-    if (window.scrollY >= (sectionTop - offset)) {
-      currentSection = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('data-section') === currentSection) {
-      link.classList.add('active');
-    }
-  });
-
-  // Ensure Home is active when at the very top
-  if (window.scrollY < 200) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      document.querySelector('.navigation-link[data-section="home"]').classList.add('active');
-  }
-});
-
-// Back to top button functionality
-backToTopButton.addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-// Counter animation
-function animateCounters() {
-  const counters = document.querySelectorAll('.count-up');
-  const speed = 200; // The lower the slower
-
-  counters.forEach(counter => {
-    const target = +counter.getAttribute('data-count');
-    let count = 0;
-    const increment = Math.ceil(target / speed);
-    let hasAnimated = false; // Flag to ensure animation runs only once
-
-    const updateCount = () => {
-      if (count < target) {
-        count += increment;
-        if (count > target) count = target;
-        // Add percentage sign back if it was originally there
-        const suffix = counter.getAttribute('data-suffix') || (target === 98 ? '%' : '');
-        counter.innerText = count + suffix;
-        requestAnimationFrame(updateCount);
-      } else {
-        const suffix = counter.getAttribute('data-suffix') || (target === 98 ? '%' : '');
-        counter.innerText = target + suffix;
-      }
-    };
-
-    // Start animation when element is in viewport
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true; // Set flag
-          // Store suffix if needed, e.g., for percentage
-          if (counter.innerText.includes('%')) {
-              counter.setAttribute('data-suffix', '%');
-          }
-          updateCount();
-          // Optionally unobserve after animating
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(counter);
-  });
-}
-
-// Call counter animation when DOM is loaded
-document.addEventListener('DOMContentLoaded', animateCounters);
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-  // Highlight active nav item on page load (considering initial scroll position)
-  let currentSection = 'home'; // Default to home
-  sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const offset = header.offsetHeight + 150;
-      if (window.scrollY >= (sectionTop - offset)) {
-          currentSection = section.getAttribute('id');
-      }
-  });
-
-  document.querySelectorAll('.navigation-link').forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-section') === currentSection) {
-          link.classList.add('active');
-      }
-  });
-
-   // Ensure Home is active if no other section is active (e.g., at top)
-   const activeLinks = document.querySelectorAll('.navigation-link.active');
-   if (activeLinks.length === 0) {
-       document.querySelector('.navigation-link[data-section="home"]').classList.add('active');
-   }
-});
-</script>
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
