@@ -1,89 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vineeth N</title>
+    <title>Simple Website with Tracking</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.6;
-            max-width: 600px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            color: #333;
         }
-        
-        .title {
-            font-size: 48px;
-            font-weight: 400;
-            color: #999;
-            text-align: center;
-            margin-bottom: 60px;
-            letter-spacing: 8px;
-        }
-        
-        p {
-            text-align: justify;
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
             margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
             font-size: 14px;
         }
-        
-        .section-break {
-            text-align: center;
-            margin: 40px 0;
-            font-style: italic;
-            color: #666;
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
         }
-        
-        .credit {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 12px;
-            color: #aaa;
-            font-style: italic;
+
+        button {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
         }
-        
-        strong {
-            font-weight: bold;
+
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
         }
-        
-        a {
-            color: #333;
-            text-decoration: underline;
+
+        .status-bar {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 14px;
         }
     </style>
 </head>
+
 <body>
-    <div class="title">VINEETH N</div>
-    
-    <p>I've always been the kind of person deeply excited about the idea of purpose—why we exist, what we're meant to do. That search led me to explore the world of technology, where somewhere along the way, I found a spark in building applications.</p>
-    
-    <p>I started with code—learning logic, writing functions, solving problems—but something felt off. I realized: this isn't the full picture. It wasn't just about the syntax. I was searching for something more intelligent. More meaningful. And then, I stepped into <strong>Artificial Intelligence</strong>.</p>
-    
-    <p>My journey began with data—understanding it, cleaning it, respecting its power. Then came Machine Learning and Deep Learning, where I tried overwhelmingly hard, sometimes lost, sometimes stuck, but always driven. I knew I needed to turn this into something real. So, I built a few intermediate-level AI apps. Not perfect. But mine. And they taught me more than any course could.</p>
-    
-    <div class="section-break">The deep end</div>
-    
-    <p>During my BCA, I got a chance to work as an AI Researcher at a startup—my first big break. It was freelance, it was scrappy, and I was still a student, navigating the rough realities of the Indian education system. But I learned to swim in the deep end early.</p>
-    
-    <p>More freelance gigs came my way, but honestly—I was scared. Imposter syndrome is real. But still, I showed up. And when I dove deeper into the world of AI, especially LLMs, it felt like exploring galaxies. It was vast. Unknown. Powerful. That's when the real fun began—building actual AI products, not just following tutorials.</p>
-    
-    <div class="section-break">Building something real</div>
-    
-    <p>Later, I joined as an AI Engineer and that's where my journey evolved. I wasn't just learning anymore—I was building. Today, I'm not just someone learning AI. I'm someone living it.</p>
-    
-    <p>Now, as the founder of <strong>Orbitrar</strong>, I'm taking everything I've learned and channeling it into building something that matters. We're creating AI solutions that don't just follow trends but actually solve real problems. It's scary and exhilarating at the same time—going from employee to entrepreneur, from building for others to building my own vision.</p>
-    
-    <div class="section-break">The future is collaborative</div>
-    
-    <p>I believe that we'll more effectively advance our understanding of AI by collaborating with the wider community of researchers and builders. Through <strong>Orbitrar</strong>, the plan is to continue building, learning, and sharing knowledge with fellow builders who share this vision, ultimately helping advance the field through both innovation and thoughtful development.</p>
-    
-    <p>Still excited. Still scared sometimes. But always moving forward—project by project, model by model, purpose by purpose. Because at the end of the day, this isn't just about the technology. It's about using that technology to create something meaningful.</p>
-    
-    <div class="credit">
-        Wrote with Sonnet 4
+    <div class="container">
+        <div class="card">
+            <h1>🚀 Welcome to Our Website</h1>
+            <div class="status-bar">
+                ✅ Tracking Active | User ID: <span id="user-id"></span>
+            </div>
+            <p>This is a simple website with analytics tracking enabled. Every action you take is being tracked!</p>
+        </div>
+
+        <div class="card">
+            <h2>📞 Contact Us</h2>
+            <p>Get in touch with us through your preferred method:</p>
+            <a href="tel:+919876543210" class="btn">📱 Call Now</a>
+            <a href="https://wa.me/919876543210" class="btn">💬 WhatsApp</a>
+            <a href="mailto:info@example.com" class="btn">📧 Email</a>
+        </div>
+
+        <div class="card">
+            <h2>📝 Get Started</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone">
+                <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>🔗 Explore More</h2>
+            <p>Check out these resources:</p>
+            <a href="https://google.com" target="_blank" class="btn">Google</a>
+            <a href="https://youtube.com" target="_blank" class="btn">YouTube</a>
+        </div>
     </div>
+
+    <!-- ============================================ -->
+    <!-- ZEPHRA ANALYTICS TRACKING CODE - START -->
+    <!-- ============================================ -->
+    <script>
+        (function () {
+            // Configuration
+            const CLIENT_ID = 'example_website';
+            const API_URL = 'http://localhost:8000/event';
+
+            // Generate unique user ID
+            function generateZUID() {
+                return 'ZUID_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
+            }
+
+            // Get or create user ID
+            let zuid = localStorage.getItem('zephra_zuid');
+            if (!zuid) {
+                zuid = generateZUID();
+                localStorage.setItem('zephra_zuid', zuid);
+            }
+
+            // Display user ID on page
+            const userIdEl = document.getElementById('user-id');
+            if (userIdEl) userIdEl.textContent = zuid;
+
+            // Capture UTM parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const utm = {};
+            ['source', 'medium', 'campaign', 'term', 'content'].forEach(key => {
+                const val = urlParams.get('utm_' + key);
+                if (val) {
+                    utm['utm_' + key] = val;
+                    sessionStorage.setItem('zephra_utm_' + key, val);
+                } else {
+                    const stored = sessionStorage.getItem('zephra_utm_' + key);
+                    if (stored) utm['utm_' + key] = stored;
+                }
+            });
+
+            // Event queue for batch sending
+            let eventQueue = [];
+            let sending = false;
+
+            // Main tracking function
+            function track(eventName, data = {}) {
+                const payload = {
+                    event: eventName,
+                    zuid: zuid,
+                    client_id: CLIENT_ID,
+                    url: window.location.href,
+                    referrer: document.referrer,
+                    timestamp: Date.now(),
+                    utm: utm,
+                    viewport: { width: window.innerWidth, height: window.innerHeight },
+                    ...data
+                };
+
+                console.log('📊 Tracked:', eventName, payload);
+
+                eventQueue.push(payload);
+                sendEvents();
+            }
+
+            // Send events to server
+            async function sendEvents() {
+                if (sending || eventQueue.length === 0) return;
+                sending = true;
+                const batch = eventQueue.splice(0, 10);
+
+                try {
+                    await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ events: batch }),
+                        keepalive: true
+                    });
+                    console.log('✅ Sent to server:', batch.length, 'events');
+                } catch (e) {
+                    console.error('❌ Error sending events:', e.message);
+                    eventQueue.unshift(...batch);
+                    localStorage.setItem('zephra_queue', JSON.stringify(eventQueue));
+                }
+
+                sending = false;
+                if (eventQueue.length > 0) setTimeout(sendEvents, 100);
+            }
+
+            // Restore unsent events from previous session
+            try {
+                const stored = localStorage.getItem('zephra_queue');
+                if (stored) {
+                    eventQueue = JSON.parse(stored);
+                    localStorage.removeItem('zephra_queue');
+                    sendEvents();
+                }
+            } catch (e) { }
+
+            // ===== AUTO-TRACKING EVENTS =====
+
+            // Track page view
+            track('page_view', {
+                title: document.title,
+                path: window.location.pathname
+            });
+
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', () => {
+                const percent = Math.round((window.scrollY + window.innerHeight) / document.body.scrollHeight * 100);
+                [25, 50, 75, 90].forEach(threshold => {
+                    if (percent >= threshold && maxScroll < threshold) {
+                        track('scroll', { depth: threshold });
+                    }
+                });
+                maxScroll = Math.max(maxScroll, percent);
+            });
+
+            // Track time on page
+            let startTime = Date.now();
+            window.addEventListener('beforeunload', () => {
+                track('time_on_page', { seconds: Math.round((Date.now() - startTime) / 1000) });
+            });
+
+            // Track clicks
+            document.addEventListener('click', (e) => {
+                // External links
+                const link = e.target.closest('a');
+                if (link && link.href && !link.href.includes(window.location.hostname)) {
+                    track('outbound_click', { url: link.href, text: link.innerText });
+                }
+
+                // Phone clicks
+                const tel = e.target.closest('a[href^="tel:"]');
+                if (tel) {
+                    track('phone_click', { number: tel.href.replace('tel:', '') });
+                }
+
+                // WhatsApp clicks
+                const wa = e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
+                if (wa) {
+                    track('whatsapp_click', { url: wa.href });
+                }
+            });
+
+            // Expose tracking function globally
+            window.zephraTrack = track;
+        })();
+    </script>
+    <!-- ============================================ -->
+    <!-- ZEPHRA ANALYTICS TRACKING CODE - END -->
+    <!-- ============================================ -->
+
+    <!-- Form submission handler -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            // Track form submission
+            window.zephraTrack('form_submit', data);
+
+            alert('✅ Form submitted! Check the dashboard at http://localhost:8000');
+            e.target.reset();
+        });
+    </script>
 </body>
+
 </html>
